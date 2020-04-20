@@ -1,0 +1,80 @@
+html,
+body,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+input,
+fieldset,
+legend,
+img,
+div,
+section,
+figure,
+header,
+nav,
+main,
+footer,
+textarea {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+fieldset,
+img {
+    border: none;
+}
+
+em,
+i,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ul,
+dl {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color:#8d8d8d;
+}
+
+input,
+button {
+    outline: none;
+    border: none;
+}
+
+img {
+    display: block;
+}
+
+.wrap {
+    width: 1920px;
+    height: 1080px;
+}

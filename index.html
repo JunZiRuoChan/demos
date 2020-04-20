@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DEMO</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://vjs.zencdn.net/7.7.5/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+</head>
+<body>
+<div class="dashboard-warp">
+    <div class="m-shadow">
+        <div class="video video-show">
+            <div class="video-info">
+                <span id="siteInfo">工地</span>
+            </div>
+            <video id="video1" width="100%" height="100%" class="video-js vjs-default-skin" ref="" controls preload="auto" crossOrigin="anonymous">
+                <source id="video_url" src="rtmp://192.168.1.246:1935/live/video1" type="rtmp/flv"/>
+            </video>
+        </div>
+        <div class="img img-show">
+            <div class="prev_btn"></div>
+            <ul id="imgs_url">
+                <li><img src="" alt=""><span class="img_time">时间</span><span class="img_happen">事件</span></li>
+                <li><img src="" alt=""><span class="img_time">时间</span><span class="img_happen">事件</span></li>
+                <li><img src="" alt=""><span class="img_time">时间</span><span class="img_happen">事件</span></li>
+            </ul>
+            <div class="next_btn"></div>
+        </div>
+    </div>
+</div>
+<script src="https://vjs.zencdn.net/7.7.5/video.js"></script>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script>
+    //视频
+    $(function(){
+        function getVideo(){
+            $.ajax({
+                type : "POST",
+                url : "http://localhost/warnInfo/baseInfo",
+                contentType: "application/json",
+                dataType:'json',
+                data : '',
+                success : function(result) {
+                    console.log(result);
+                    $('#siteInfo').html(result.data.siteInfo);
+                    $('#video_url').attr('src',result.data.video);
+                },
+                //请求失败
+                error : function(e){
+                    console.log(e.status);
+                    console.log(e.responseText);
+                }
+            });
+        }
+        getVideo();
+        let play = videojs('video1');
+        /*function getImgs(){
+            $.ajax({
+                type : "POST",
+                url : "http://localhost/warnInfo/list",
+                contentType: "application/json",
+                dataType:'json',
+                data : '',
+                success : function(result) {
+                    console.log(result);
+                   $('#imgs_url').empty();
+                    var html = '';
+                    $.each(result.data, function(i, value){
+                        let time = new Date(value.warnTime);
+                        var warnTime = time.getFullYear()+'年- ';
+                        warnTime+=(time.getMonth()+1)+'月- ';
+                        warnTime+=time.getDate()+'日 ';
+                        html += '<li><img src="'+value.imgRenderUrl+'">'
+                            + '<span class="img_time">'+warnTime+'</span>' +
+                            + '<span class="img_happen">抽烟，未戴帽</span></li>';
+                    });
+                    $('#imgs_url').html(html);
+                },
+                //请求失败
+                error : function(e){
+                    console.log(e.status);
+                    console.log(e.responseText);
+                }
+            });
+        }
+        getImgs();*/
+    })
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+body{
+}
+.dashboard-warp{
+    width:1280px;
+    margin:100px auto;
+}
+.video-show{
+    width:880px;
+    height:450px;
+    float:left;
+}
+.video-show .video-info{
+    margin-top:-16px;
+}
+.img-show{
+    width:319px;
+    height:850px;
+    color:#111;
+    display:inline;
+    float:right;
+    overflow: hidden;
+}
+.img-show li{
+    padding:0 11px 0 9px;
+    width:299px;
+    height:64px;
+    cursor: pointer;
+    transition: all .7s ease 0s;
+    float:left;
+    margin-bottom: 83px;
+}
+.img-show li img{
+    padding:2px;
+    border:1px solid #ccc;
+    width:200px;
+    height:120px;
+    margin-right:10px;
+    float:left;
+}
+.img-show li .img_time{
+    height:20px;
+    font: bold 13px/16px 'Microsoft YaHei';
+    display: block;
+}
+.img-show li .img_happen{
+    height: 23px;
+    line-height: 23px;
+    display: block;
+}
+.prev_btn,.next_btn{
+    width:220px;
+    height:23px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.prev_btn{
+    background: url("../img/img_pre.png")no-repeat center top;
+    margin:-37px 0 40px 0;
+}
+.next_btn{
+    background: url("../img/img_next.png")no-repeat center top;
+}
